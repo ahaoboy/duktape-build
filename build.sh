@@ -15,7 +15,7 @@ if [[ "$TARGET" == *windows* ]]; then
 else
   git clone https://github.com/svaarala/duktape duktape
   cd duktape
-  make duk
+  make
 fi
 
 mkdir ../dist
