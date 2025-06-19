@@ -49,6 +49,19 @@ jobs:
             unzip
             curl
             wget
+
+      - name: install dep ${{ matrix.target }}
+        if: startsWith(matrix.os, 'ubuntu')
+        shell: "bash"
+        run: |
+          sudo apt-get install python python-yaml -y
+
+      - name: install dep ${{ matrix.target }}
+        if: startsWith(matrix.os, 'macos')
+        shell: "bash"
+        run: |
+          pip install PyYAML
+
       - name: build-${{ matrix.target }}
         if: matrix.os != 'windows-latest'
         shell: "bash"
